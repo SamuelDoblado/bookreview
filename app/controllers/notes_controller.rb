@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
 
+  skip_before_action :ensure_login
   before_action :set_book, only: [:create, :destroy]
   
   def create

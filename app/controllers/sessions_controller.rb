@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       session[:reviewer_id] = reviewer.id
       redirect_to root_path, notice: "Logged in successfully"
     else
-      redirect_to login_path, alert: "User or password incorrect"
+     redirect_to login_path, alert: "User or password incorrect"
     end
   end
 
