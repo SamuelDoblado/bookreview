@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :books do
     resources :notes, only: [:create, :destroy]
   end
-  root 'books#index'
+  #root 'books#index'
   
   resources :sessions, only: [:new, :create, :destroy]
   get "/login" => "sessions#new", as: "login"
