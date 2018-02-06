@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   root 'books#index'
   
   resources :sessions, only: [:new, :create, :destroy]
- # get "/login" => "sessions#new", as: "login"
-#  delete "/logout" => "sessions#destroy", as: "logout"
-#  get "/allbooks" => "allbooks#index"
-#  get "/allbooks/:id" => "allbooks#show"
-#  get "/new_reviewer" => "reviewers#new"
-#  get "/reviewers" => "reviewers#index"
-#  get "/edit_reviewer" => "reviewers#edit"
-#  post "/reviewers/" => "reviewers#create"
+  get "/login" => "sessions#new", as: "login"
+  delete "/logout" => "sessions#destroy", as: "logout"
+  get "/allbooks" => "allbooks#index"
+  get "/allbooks/:id" => "allbooks#show"
+  get "/new_reviewer" => "reviewers#new"
+  get "/reviewers" => "reviewers#index"
+  get "/edit_reviewer" => "reviewers#edit"
+  post "/reviewers/" => "reviewers#create"
 end
