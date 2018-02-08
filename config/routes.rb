@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   end
   root 'books#index'
   
-  
-  
   resources :sessions, only: [:new, :create, :destroy]
   get "/login" => "sessions#new", as: "login"
   delete "/logout" => "sessions#destroy", as: "logout"
