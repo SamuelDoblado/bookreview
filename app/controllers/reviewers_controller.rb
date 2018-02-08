@@ -26,7 +26,7 @@ class ReviewersController < ApplicationController
   # POST /reviewers.json
   def create
     captcha_message = "The data you entered for the CAPTCHA wasn't correct.  Please try again"
-   
+   render :new 
     @reviewer = Reviewer.new(reviewer_params)
     
     respond_to do |format|
