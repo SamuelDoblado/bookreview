@@ -38,10 +38,10 @@ class ReviewersController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @reviewer.errors, status: :unprocessable_entity }
-        format.json { render inline: "location.reload();" }
       end
      
     end
+    render inline: "location.reload();" 
   end
 
   # PATCH/PUT /reviewers/1
