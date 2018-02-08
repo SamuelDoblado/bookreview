@@ -34,8 +34,8 @@
     margin: 10px 0px;
   }
   table{
-    border: 1px solid blue;
+    border: 2px solid blue;
   }
  td{
-   border: 1px solid blue;
+   border: 1px solid gray;
  }
