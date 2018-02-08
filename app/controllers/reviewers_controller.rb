@@ -25,26 +25,20 @@ class ReviewersController < ApplicationController
   # POST /reviewers
   # POST /reviewers.json
   def create
-    #captcha_message = "The data you entered for the CAPTCHA wasn't correct.  Please try again"
-
+    captcha_message = "The data you entered for the CAPTCHA wasn't correct.  Please try again"
+    verify_recaptcha(model: @reviewer, message: captcha_message)
     @reviewer = Reviewer.new(reviewer_params)
-
+    
     respond_to do |format|
-     # if verify_recaptcha(model: @reviewer, message: captcha_message) && @reviewer.save
+      if verify_recaptcha(model: @reviewer, message: captcha_message) && @reviewer.save
      
-     #   format.html { redirect_to login_path, notice: 'Reviewer was successfully created.' }
-    #    format.json { render :show, status: :created, location: @reviewer }
-    #  else
-    #    format.html { render :new }
-    #    format.json { render json: @reviewer.errors, status: :unprocessable_entity }
-    #  end
-      if verify_recaptcha
-        @reviewer.save!
-        redirect_to login_path, notice: 'Reviewer was successfully created.'
+        format.html { redirect_to login_path, notice: 'Reviewer was successfully created.' }
+        format.json { render :show, status: :created, location: @reviewer }
       else
-        flash[:notice] = "The data you entered for the CAPTCHA wasn't correct.  Please try again"
-        render :action => 'new'
+        format.html { render :new }
+        format.json { render json: @reviewer.errors, status: :unprocessable_entity }
       end
+     
     end
   end
 
