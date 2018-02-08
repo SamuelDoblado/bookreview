@@ -41,7 +41,7 @@ class ReviewersController < ApplicationController
       end
      
     end
-    render inline: "location.reload();" 
+   location.render
   end
 
   # PATCH/PUT /reviewers/1
