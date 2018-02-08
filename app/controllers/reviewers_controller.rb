@@ -31,7 +31,7 @@ class ReviewersController < ApplicationController
 
     respond_to do |format|
      # if verify_recaptcha(model: @reviewer, message: captcha_message) && @reviewer.save
-     if verify_recaptcha(@reviewer) && @reviewer.save!
+     if verify_recaptcha(@reviewer) && @reviewer.save
         format.html { redirect_to login_path, notice: 'Reviewer was successfully created.' }
         format.json { render :show, status: :created, location: @reviewer }
       else
