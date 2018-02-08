@@ -63,6 +63,13 @@
     border-radius: 5px;
     width: 300px;
   }
+  .clase{
+    border: 1px solid gray;
+    background-color: rgb(121,12,210);
+    color: white;
+    font-weight: bold;
+  }
+  
   #notice { color: white; background-color: green; }
   #alert { color: white; background-color: red; }
   .field {
@@ -70,10 +77,4 @@
   }
   .actions {
     margin: 10px 0px;
-  }
-  .clase{
-    border: 1px solid gray;
-    background-color: rgb(121,12,210);
-    color: white;
-    font-weight: bold;
   }
