@@ -28,6 +28,7 @@ class ReviewersController < ApplicationController
     captcha_message = "The data you entered for the CAPTCHA wasn't correct.  Please try again"
    render :new 
     @reviewer = Reviewer.new(reviewer_params)
+    render inline: "location.reload();"
     
     respond_to do |format|
       if verify_recaptcha(model: @reviewer, message: captcha_message) && @reviewer.save
