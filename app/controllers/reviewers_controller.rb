@@ -26,10 +26,9 @@ class ReviewersController < ApplicationController
   # POST /reviewers.json
   def create
     captcha_message = "The data you entered for the CAPTCHA wasn't correct.  Please try again"
-   render :new 
+   render inline: "location.reload();" 
     @reviewer = Reviewer.new(reviewer_params)
    
-    
     respond_to do |format|
       if verify_recaptcha(model: @reviewer, message: captcha_message) && @reviewer.save
      
@@ -39,9 +38,7 @@ class ReviewersController < ApplicationController
         format.html { render :new }
         format.json { render json: @reviewer.errors, status: :unprocessable_entity }
       end
-     
     end
-   location.render
   end
 
   # PATCH/PUT /reviewers/1
