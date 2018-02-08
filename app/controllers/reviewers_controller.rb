@@ -26,12 +26,11 @@ class ReviewersController < ApplicationController
   # POST /reviewers.json
   def create
     captcha_message = "The data you entered for the CAPTCHA wasn't correct.  Please try again"
-   render inline: "location.reload();" 
+  
     @reviewer = Reviewer.new(reviewer_params)
    
     respond_to do |format|
       if verify_recaptcha(model: @reviewer, message: captcha_message) && @reviewer.save
-     
         format.html { redirect_to login_path, notice: 'Reviewer was successfully created.' }
         format.json { render :show, status: :created, location: @reviewer }
       else
