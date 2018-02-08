@@ -31,12 +31,19 @@ class ReviewersController < ApplicationController
 
     respond_to do |format|
      # if verify_recaptcha(model: @reviewer, message: captcha_message) && @reviewer.save
-     if verify_recaptcha(@reviewer) && @reviewer.save
-        format.html { redirect_to login_path, notice: 'Reviewer was successfully created.' }
-        format.json { render :show, status: :created, location: @reviewer }
+     
+     #   format.html { redirect_to login_path, notice: 'Reviewer was successfully created.' }
+    #    format.json { render :show, status: :created, location: @reviewer }
+    #  else
+    #    format.html { render :new }
+    #    format.json { render json: @reviewer.errors, status: :unprocessable_entity }
+    #  end
+      if verify_recaptcha
+        @reviewer.save!
+        redirect_to login_path, notice: 'Reviewer was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @reviewer.errors, status: :unprocessable_entity }
+        flash[:notice] = "The data you entered for the CAPTCHA wasn't correct.  Please try again"
+        render :action => 'new'
       end
     end
   end
