@@ -21,12 +21,9 @@
     <%= form.password_field :password, id: :reviewer_password %>
   </div>
   
-  <div>
-    <%= recaptcha_tags %>
-  </div>
-
-
   <div class="actions">
     <%= form.submit %>
   </div>
+ 
+ <div> <%= raw recaptcha_tags %></div>
 <% end %>
