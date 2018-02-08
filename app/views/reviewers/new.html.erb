@@ -2,4 +2,4 @@
 
 <%= render 'form', reviewer: @reviewer %>
 <%= link_to 'Back', login_path %>
-<div> <%= raw recaptcha_tags %></div>
+<div> <%= raw recaptcha_tags :ssl => true %></div>
